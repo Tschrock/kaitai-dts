@@ -1,0 +1,33 @@
+{
+  "name": "@tschrock/kaitai-dts",
+  "version": "1.0.0",
+  "description": "Generates TypeScript definitions for Kaitai Structs.",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": "./dist/kaitai-dts.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tschrock/kaitai-dts.git"
+  },
+  "keywords": [
+    "kaitai",
+    "struct",
+    "typescript",
+    "dts"
+  ],
+  "author": "Tyler Schrock <tschrock123@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tschrock/kaitai-dts/issues"
+  },
+  "homepage": "https://github.com/tschrock/kaitai-dts#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.23",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "yaml": "^1.10.2"
+  }
+}
