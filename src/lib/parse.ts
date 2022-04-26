@@ -6,7 +6,6 @@ export interface Type {
     getters: Getter[]
     types: Type[]
     enums: Enum[]
-    parent?: Type
 }
 
 export interface Getter {
@@ -48,13 +47,13 @@ export function getTypeFromSchema(schema: ksy.KsySchema): Type {
     if (!schema.meta.id) throw new TypeError("schema.meta.id is undefined");
 
     // TODO: handle types for schema.meta.imports
-    return parentify({
+    return {
         name: schema.meta.id,
         types: getTypes(schema.types),
         enums: getEnums(schema.enums),
         properties: getAttributes(schema.seq),
         getters: getInstances(schema.instances),
-    })
+    }
 }
 
 function getAttributes(attributes: ksy.Attribute[] = []): Property[] {
@@ -164,10 +163,4 @@ function resolveType(value: string): string | symbol {
             }
     }
     return value;
-}
-
-function parentify(type: Type, parent?: Type) {
-    type.parent = parent;
-    type.types.forEach(t => parentify(t, type))
-    return type;
 }

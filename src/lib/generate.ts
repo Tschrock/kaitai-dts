@@ -6,7 +6,7 @@ import { factory as $ } from './factory';
 import { getTypeFromSchema, BuiltinType } from './parse'
 import { toLowerCamel, toUpperCamel } from './util';
 
-export function generateModuleFile(filename: string, schema: ksy.KsySchema): string {
+export function generateModuleFile(schema: ksy.KsySchema): string {
     const type = getTypeFromSchema(schema);
     return $.file("    ", [
         "// This file was auto-generated. If this file is regenerated, all changes will be lost.",
